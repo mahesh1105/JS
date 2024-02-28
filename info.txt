@@ -1,0 +1,27 @@
+Python software for eecuting python Files likewise we have Node JS software or environment for executing JS Files
+
+Initially, JS software is attached or integrated with the browser, At that time we have to write html syntax and there we have to write the JS code inside the script tag and then that code will be executed in the browser using live server
+Later on it was decided to extract it outside the browser so that JS code can be executed standalone like other programming language code, like - C, C++, JAVA, Python
+
+JS softwares or engines that were peresent in the browser, Node JS, Deno JS, V8 Engine
+
+Different Code Editors, like - Visual Studio Code, Jetbrains Fleet, Sublime Text, ...
+
+node -v :: To check which version of Node JS is installed
+node "fileName.js" :: To execute the JS Files
+
+First stage all changes and then push all the commits to your repo
+
+----------------------------------------------------------------
+Node JS ::
+Node.js is an open-source, cross-platform JavaScript runtime environment and library that allows JavaScript to be run outside of the browser.
+It is built on Chrome's V8 JavaScript engine and uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. 
+Node.js is used to develop scalable and performant server-side applications, Web Applications as well as desktop and mobile applications.
+
+Key Features of Node.js ::
+-- Cross-platform: Node.js can be run on Windows, macOS, and Linux.
+-- JavaScript runtime environment: Node.js allows JavaScript to be run outside of the browser.
+-- Event-driven, non-blocking I/O model: Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient.
+-- Scalable and performant: Node.js is used to develop scalable and performant server-side applications.
+-- Large community and ecosystem: Node.js has a large community and ecosystem with a wide range of modules and libraries available.
+
