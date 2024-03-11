@@ -102,7 +102,22 @@ let str2 = " Mahesh"
 let str3 = str1 + str2
 // console.log(str3);
 
-console.log(1 + "2"); // 12
-console.log("1" + 2); // 12
-console.log("1" + 2 + 2); // 122
-console.log(1 + 2 + "2"); // 32
+// console.log(1 + "2"); // 12
+// console.log("1" + 2); // 12
+// console.log("1" + 2 + 2); // 122
+// console.log(1 + 2 + "2"); // 32
+
+// console.log( (3 + 4) * 5 % 6); // Try to use the paranthesis as per your requirements
+
+// console.log(+true);  // 1
+// console.log(+false); // 0
+// console.log(+"");    // 0
+
+let n1, n2, n3
+n1 = n2 = n3 = 2 + 2 // Readabilty is not good here
+
+let gameCounter = 100
+gameCounter++
+++gameCounter
+
+console.log(gameCounter)
