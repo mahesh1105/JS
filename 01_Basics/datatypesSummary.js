@@ -39,8 +39,37 @@ const myFunction = function() {
     console.log("Hello World...");
 }
 
-console.log(typeof heros);      // object
-console.log(typeof myObj);      // object
-console.log(typeof myFunction); // function -- function object
+// console.log(typeof heros);      // object
+// console.log(typeof myObj);      // object
+// console.log(typeof myFunction); // function -- function object
 
-// Javascript is dynamically typed language -- type will be decided after the assignment of value
+// Javascript is dynamically typed language -- type will be decided at the runtime,, 
+// this language doesn't have predefined data type like others
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Stack (Primitive), Heap (Non-Primitive)
+// Stack Memory -- Always get copy of the data
+// Heap Memory -- Always get reference of the data,, 
+// that means whatever changes we do here will reflect in original values as well
+
+let myName = "Mahesh"
+let anotherName = myName // Here copy of myName is stored in anotherName
+
+myName = "Hitesh"
+
+// console.log(myName) // Hitesh
+// console.log(anotherName) // Mahesh
+
+let userOne = {
+    email: "user@google.com",
+    upi: "user@ybl"
+}
+
+let userTwo = userOne // Here reference of userOne is stored in userTwo
+// means where userOne is pointing in the Heap,, userTwo will point to the same memory block
+
+userTwo.email = "maheshsaini@gmail.com"
+
+console.log(userOne.email);
+console.log(userTwo.email);
