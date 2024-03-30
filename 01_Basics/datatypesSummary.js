@@ -1,6 +1,9 @@
 // Data Types -- Primitive or Non-Primitive
 
 // Primitive -- 7 Types :: String, Number, Boolean, null, undefined, Symbol, BigInt
+// Number - int, float, double
+// String - string, char
+// Boolean - bool
 
 const str = "Mahesh";
 
