@@ -25,3 +25,4 @@ Key Features of Node.js ::
 -- Scalable and performant: Node.js is used to develop scalable and performant server-side applications.
 -- Large community and ecosystem: Node.js has a large community and ecosystem with a wide range of modules and libraries available.
 
+In 2015, ES6 was introduced and that time, many features came with ES6. (Major Changes)
