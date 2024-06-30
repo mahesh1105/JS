@@ -25,14 +25,15 @@ let isReady = true
 let k = null
 let val
 
-console.log(typeof num)
-console.log(typeof n)
-console.log(typeof str)
-console.log(typeof isReady)
-console.log(typeof k)
-console.log(typeof val)
+// console.log(typeof num)
+// console.log(typeof n)
+// console.log(typeof str)
+// console.log(typeof isReady)
+// console.log(typeof k)
+// console.log(typeof val)
 
 console.log(typeof null) // object
 console.log(typeof undefined) // undefined
+console.log(typeof NaN); // Number
 
 // Objects - Later talk about it
