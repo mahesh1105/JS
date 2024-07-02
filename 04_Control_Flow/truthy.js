@@ -44,8 +44,8 @@ const userEmail = ""
 // 0 == ''     --> true --> Number == String
 
 // false === 0  --> false --> boolean === Number
-// false === '' --> false --> boolean === Number
-// 0 === ''     --> false --> boolean === Number
+// false === '' --> false --> boolean === String
+// 0 === ''     --> false --> Number === String
 
 // Nullish Coalescing Operator (??): null undefined
 // It is basically used for cheking the type-safety,,
