@@ -10,13 +10,13 @@ console.log(3
 */
 
 // Primitive DataTypes
-// number => 2 to power 53
-// bigint => 
-// string => ""
-// boolean => true/false
-// null => standalone value
-// undefined => value is not assigned yet
-// symbol => unique
+// Number => -(2^53 - 1) and (2^53 - 1)
+// Bigint => Suffix - n,, store bigger number
+// String => '', "", `` => Single Quotes, Double Quotes, Backticks
+// Boolean => true/false
+// Null => standalone value
+// Undefined => value is not assigned yet
+// Symbol => unique
 
 let num = 20
 let n = BigInt(200000)
