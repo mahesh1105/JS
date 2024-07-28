@@ -10,7 +10,7 @@
 // console.log("02" < 3); // 2 < 3 :: true
 
 // Equality check Operator (==) and Comparison Operator (<, <=, >, >=) works differently
-// Comparison willl convert null to a number treating it as zero
+// Comparison will convert null to a number treating it as zero
 // These types of comparsion should not be happen -- Unpredictable result
 // sometimes null got converted to NaN or sometimes to Zero
 // console.log(null > 0) // false
