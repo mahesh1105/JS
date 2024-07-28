@@ -5,45 +5,47 @@ let score = 95
 
 // console.log("\n String Input \n")
 
+// Converting num1 to Number Type
+// If result can be converted to number then it gets stored into valueInNumber1, else NaN gets stored
 let num1 = "50"
 let valueInNumber1 = Number(num1)
-// console.log(typeof valueInNumber1);
-// console.log(valueInNumber1);
+// console.log(typeof valueInNumber1); // number
+// console.log(valueInNumber1); // 50
 
 // console.log("\n String Input \n")
 
 let num2 = "50abc"
 let valueInNumber2 = Number(num2)
-// console.log(typeof valueInNumber2);
-// console.log(valueInNumber2);
+// console.log(typeof valueInNumber2); // number
+// console.log(valueInNumber2); // NaN - which is also a number
 
 // console.log("\n Null Input \n")
 
 let num3 = null
 let valueInNumber3 = Number(num3)
-// console.log(typeof valueInNumber3);
-// console.log(valueInNumber3);
+// console.log(typeof valueInNumber3); // number
+// console.log(valueInNumber3); // 0
 
 // console.log("\n Undefined Input \n")
 
 let num4 = undefined
 let valueInNumber4 = Number(num4)
-// console.log(typeof valueInNumber4);
-// console.log(valueInNumber4);
+// console.log(typeof valueInNumber4); // number
+// console.log(valueInNumber4); // NaN
 
 // console.log("\n True Input \n")
 
 let num5 = true
 let valueInNumber5 = Number(num5)
-// console.log(typeof valueInNumber5);
-// console.log(valueInNumber5);
+// console.log(typeof valueInNumber5); // number
+// console.log(valueInNumber5); // 1
 
 // console.log("\n False Input \n")
 
 let num6 = false
 let valueInNumber6 = Number(num6)
-// console.log(typeof valueInNumber6);
-// console.log(valueInNumber6);
+// console.log(typeof valueInNumber6); // number
+// console.log(valueInNumber6); // 0
 
 // "33" => 33 (Convertible into Number)
 // "33abc" => NaN (Cannot be Convertible into a Number)
@@ -55,22 +57,22 @@ let valueInNumber6 = Number(num6)
 let isLoggedIn1 = 1
 
 let booleanIsLoggedIn1 = Boolean(isLoggedIn1);
-// console.log(booleanIsLoggedIn1);
+// console.log(booleanIsLoggedIn1); // true
 
 let isLoggedIn2 = 0
 
 let booleanIsLoggedIn2 = Boolean(isLoggedIn2);
-// console.log(booleanIsLoggedIn2);
+// console.log(booleanIsLoggedIn2); // false
 
 let val1 = ""
 
 let booleanValue1 = Boolean(val1);
-// console.log(booleanValue1);
+// console.log(booleanValue1); // false
 
 let val2 = "Mahesh"
 
 let booleanValue2 = Boolean(val2);
-// console.log(booleanValue2);
+// console.log(booleanValue2); // true
 
 // 1 => true; 0 => false
 // "" => false
@@ -79,22 +81,22 @@ let booleanValue2 = Boolean(val2);
 let someNumber = 33
 
 let stringNumber = String(someNumber);
-// console.log(stringNumber);
-// console.log(typeof stringNumber);
+// console.log(stringNumber); // 33
+// console.log(typeof stringNumber); // string
 
 // *************************** Operations ***************************
 
 let value = 3
 let negValue = -value
 
-// console.log(negValue);
+// console.log(negValue); // -3
 
-// console.log(2+2);
-// console.log(2-2);
-// console.log(2*2);
-// console.log(2**3);
-// console.log(2/3);
-// console.log(2%3);
+// console.log(2+2); // 4
+// console.log(2-2); // 0
+// console.log(2*2); // 4
+// console.log(2**3); // 8
+// console.log(2/3); // 0.66666
+// console.log(2%3); // 2
 
 let str1 = "Hello"
 let str2 = " Mahesh"
@@ -120,4 +122,4 @@ let gameCounter = 100
 gameCounter++
 ++gameCounter
 
-console.log(gameCounter)
+// console.log(gameCounter)
