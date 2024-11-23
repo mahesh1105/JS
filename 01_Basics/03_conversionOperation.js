@@ -102,8 +102,10 @@ let str1 = "Hello"
 let str2 = " Mahesh"
 
 let str3 = str1 + str2
-// console.log(str3);
+// console.log(str3); // Hello Mahesh
 
+// Going from left to right, + Operator checks the operands, if one of them is string then it will concatenate them
+// And if both are numbers then it will be added
 // console.log(1 + "2"); // 12
 // console.log("1" + 2); // 12
 // console.log("1" + 2 + 2); // 122
