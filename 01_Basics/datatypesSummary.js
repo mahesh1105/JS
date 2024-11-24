@@ -14,10 +14,24 @@ const isLoggedIn = false;
 const outsideTemp = null;
 let userEmail;
 
+// Symbol always creates a unique and immutable value, even if the descriptions passed to the Symbol() function are identical
 const id = Symbol('123')
 const anotherId = Symbol('123')
 
 // console.log(id === anotherId);  //false
+
+// Symbols:
+/*
+1. Uniqueness of Symbols:
+Each time Symbol() is called, it creates a new and unique symbol, regardless of the description provided.
+The description is just a label for debugging or logging purposes—it doesn't affect the identity of the symbol.
+
+2. Purpose of Symbol:
+The primary purpose of Symbol is to create unique property keys for objects, ensuring no accidental property name collisions.
+
+3. Comparison:
+Symbols are only equal if they are the exact same reference. Even if two symbols have the same description, they are distinct entities.
+*/
 
 const bigNumber = 7537468139476273245n;  //BigInt
 
@@ -33,6 +47,7 @@ const bigNumber = 7537468139476273245n;  //BigInt
 
 const heros = ["Superman", "Batman", "Spiderman"];
 
+// An Object have properties and each of them are associated with some value
 let myObj = {
     name: "mahesh",
     age: 22,
@@ -46,7 +61,7 @@ const myFunction = function() {
 // console.log(typeof myObj);      // object
 // console.log(typeof myFunction); // function -- function object
 
-// Javascript is dynamically typed language -- type will be decided at the runtime,, 
+// Javascript is dynamically typed language -- type will be decided at the runtime,,
 // this language doesn't have predefined data type like others
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
