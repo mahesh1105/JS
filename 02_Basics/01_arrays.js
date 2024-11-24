@@ -17,6 +17,7 @@ const myArr = [10, 20, 30, 40, 50]
 const heroes = ["Iron-Man", "Thor", "Superman", "Batman"]
 // console.log(heroes[0]);
 
+// Creating the Array Object using the Array Constructor
 const arr = new Array(100, 1000, 10000)
 // console.log(arr[1]);
 
@@ -33,7 +34,7 @@ const arr = new Array(100, 1000, 10000)
 // myArr.unshift(0)
 // console.log(myArr)
 
-// Removes the starting value from the array
+// Removes the Element at the first index of the array
 // myArr.shift()
 // console.log(myArr)
 
@@ -42,30 +43,32 @@ const arr = new Array(100, 1000, 10000)
 // console.log(myArr.includes(30)) // true
 
 // Result : Integer -- It will give index of the element which is present in the array
+// If the element is not present in the array, then it will return -1
 // console.log(myArr.indexOf(15)) // -1
 // console.log(myArr.indexOf(30)) // 2
 
 // Join the array elements and give a final string
 // const newArr = myArr.join()
 
-// console.log(myArr)
-// console.log(newArr)
-// console.log(typeof newArr)
+// console.log(myArr) // [10, 20, 30, 40, 50]
+// console.log(newArr) // 10,20,30,40,50
+// console.log(typeof newArr) // string
 
 // Method - slice and splice
 
-console.log("A ", myArr)
+// Printing Multiple values to the console
+// console.log("A ", myArr)
 
 // slice method - begin from 1st Arg and go till 2nd Arg,, but doesn't include 2nd Args
 // It does not exclude that part from original array,, original array remains unaffected
 const myn1 = myArr.slice(1, 3)
 
-console.log("B ", myArr)
-console.log(myn1)
+// console.log("B ", myArr)
+// console.log(myn1)
 
-// splice method - begin from 1st Arg and go till 2nd Arg,, but it include 2nd Args,, 
+// splice method - begin from 1st Arg and go till 2nd Arg,, but it include 2nd Args,,
 // also it exclude that part from the original array
 const myn2 = myArr.splice(1, 3)
 
-console.log("C ", myArr)
-console.log(myn2)
+// console.log("C ", myArr)
+// console.log(myn2)
