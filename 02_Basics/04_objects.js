@@ -70,8 +70,8 @@ const myArr = [
 // console.log(myArr[1])
 
 // The will give the output in the form of an array, that we can use further to iterate through it
-// console.log(Object.keys(tinderUser))
-// console.log(Object.values(tinderUser))
+// console.log(Object.keys(tinderUser)) // Return an array of keys -- ['id', 'name', 'isLoggedIn']
+// console.log(Object.values(tinderUser)) // Return an array of values -- ['123abc', 'Mahesh Saini', false]
 
 // This will give 2D array as an output - i.e. Array inside Array
 // Array of Arrays of Key-Value pairs
