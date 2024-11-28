@@ -18,6 +18,7 @@ const JsUser = {
 // Object value can be accessed using two methods - dot(.) OR square brackets []
 // recommended using square brackets []
 // console.log(JsUser.email);
+// console.log(JsUser[email]); // Error - Keys are treated as string - JsUser["email"]
 // console.log(JsUser["email"]) // compiler treats key as string
 // console.log(JsUser["full name"]) // for explicitly defined string,, need to follow this syntax
 
@@ -39,34 +40,36 @@ const myObj = {
 }
 
 // printing typeof object elements
-// console.log(typeof myObj.name)
-// console.log(typeof myObj.id)
-// console.log(typeof myObj[mySym])
+// console.log(typeof myObj.name)   // string
+// console.log(typeof myObj.id)     // number
+// console.log(typeof myObj[mySym]) // string
 
 // Printing typeof mySym
-// console.log(typeof mySym)
+// console.log(typeof mySym) // symbol
 
 // Update or Overwrite the values
 // myObj.name = "Mahesh Saini"
 
 // myObj.id = 1234
-// Freeze the object, after that no more changes can be doene to it
+// Freeze the object, after that no more changes can be done to it
 // Object.freeze(myObj)
-// myObj.id = 4567
+// myObj.id = 4567 // gets ignored by the compiler
 
 // Prints the whole object
-console.log(myObj)
+// console.log(myObj)
 
 // Functions
+// Creating new properties for myObj Object
 myObj.greeting = function() {
     console.log("Hello JS User")
 }
 
+// Creating new properties for myObj Object
 myObj.greet = function() {
     // String interpolation
     console.log(`Hello JS User, ${this.name}`)
 }
 
 // Function Call
-myObj.greeting()
-myObj.greet()
+// myObj.greeting()
+// myObj.greet()
