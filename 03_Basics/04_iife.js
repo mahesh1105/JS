@@ -3,7 +3,7 @@
 // Then use IIFE to execute function immediately after definition
 
 (function func() {
-    // Named IIFI - Function having name
+    // Named IIFE - Function having name
     console.log(`DB Connected`)
 })();
 
@@ -12,7 +12,7 @@
 // Use semicolon ";" to end the invoke function,, otherwise will give error
 
 ( () => {
-    // Unnamed IIFI
+    // Unnamed IIFE
     console.log(`DB 2 Connected`)
 })();
 
@@ -21,4 +21,6 @@
     console.log(`My name is ${name}`)
 })("Mahesh")
 
-// If you want to write two IIFI, then use semicolon at the end of first IIFI
+// If you want to write two IIFE, then use semicolon at the end of first IIFE
+// No need to put it at the end of last IIFE, it will work, but if semi-colon is missing in between,
+// then it will give error, last IIFE is not a function
