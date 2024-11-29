@@ -1,16 +1,18 @@
 // for of loop
 
-// ["", "", ""]
-// [{}, {}, {}]
+// ["", "", ""] --> Array of Strings
+// [{}, {}, {}] --> Array of Objects
 
 // iterator - for iterating the values across arrays, objects or list
 // object - used in broader way,, i.e. it doesn't mean this loop is for object only
 // we can use any list - like arrays, objects, string and many more...
+
+// Syntax: for-of loop
 // for (const iterator of object) {
     
 // }
 
-const arr = [1, 2, 3, 4, 5]
+// const arr = [1, 2, 3, 4, 5]
 
 // for (const num of arr) {
 //     console.log(num)

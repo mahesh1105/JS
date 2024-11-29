@@ -23,11 +23,12 @@ let myArray = ["Flash", "Batman", "Superman"]
 //     console.log(element)
 // }
 
-// If you out of bounds in an array, then you won't get any exceptions else will get undefined,, 
+// If you go out of bounds in an array, then you won't get any exceptions else will get undefined,, 
 // if you try to print the value beyond the indexes
 
 // break and continue
 
+// break
 // for (let index = 1; index <= 10; index++) {
 //     if(index == 5) {
 //         console.log("Detected 5");
@@ -36,10 +37,11 @@ let myArray = ["Flash", "Batman", "Superman"]
 //     console.log(`value of i is ${index}`)
 // }
 
-for (let index = 1; index <= 10; index++) {
-    if(index == 5) {
-        console.log("Detected 5");
-        continue;
-    }
-    console.log(`value of i is ${index}`)
-}
+// continue
+// for (let index = 1; index <= 10; index++) {
+//     if(index == 5) {
+//         console.log("Detected 5");
+//         continue;
+//     }
+//     console.log(`value of i is ${index}`)
+// }
