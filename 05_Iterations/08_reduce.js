@@ -7,16 +7,18 @@ const myNums = [1, 2, 3, 4, 5]
 // Starting value of accumulator is passed outside the function separated by comma
 // and final result is returned by accumulator at the end
 
-// Using Normal functions
-// let myTotal = myNums.reduce(function (accumulator, currentValue) {
-//     console.log(`acc: ${accumulator} and currVal: ${currentValue}`)
-//     return accumulator + currentValue
-// }, 0 )
+// Using Function Expressions
+let myTotal = myNums.reduce(function (accumulator, currentValue) {
+    // console.log(`acc: ${accumulator} and currVal: ${currentValue}`)
+    return accumulator + currentValue
+}, 0 )
 
-// Using Arrow functions
-// myTotal = myNums.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
+// console.log(myTotal) // 15
 
-// console.log(myTotal)
+// Using Arrow functions and implicit return
+myTotal = myNums.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
+
+// console.log(myTotal) // 15
 
 const shoppingCart = [
     {
@@ -39,13 +41,15 @@ const shoppingCart = [
 
 // To Do - Sum of course prices
 // using forEach Method
-let sumOfPrices=0
+// let sumOfPrices=0
 
 // shoppingCart.forEach((item) => {
 //     sumOfPrices += item.coursePrice
 // })
 
-// Using reduce method
+// console.log(sumOfPrices) // 15996
+
+// Using reduce method with arrow function and implicit return
 sumOfPrices = shoppingCart.reduce((accumulator, currentValue) => accumulator + currentValue.coursePrice, 0)
 
-console.log(sumOfPrices)
+// console.log(sumOfPrices) // 15996
