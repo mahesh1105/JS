@@ -16,7 +16,7 @@ function addTwoNumbers(num1, num2) {
     return num1+num2
 }
 
-const result = addTwoNumbers(20, 30)
+const result = addTwoNumbers(20, 30) // 50
 
 // console.log("Result: ", result) // Normal
 // console.log(`Result: ${result}`)   // String Interpolation
@@ -39,6 +39,16 @@ function loginUserMessage(username) {
 // const res2 = loginUserMessage()
 // console.log(res2)
 
+function addNumbers(x, y) {
+    return x+y
+}
+
+// console.log(addNumbers(10, 15)) // 25
+// When no arguments are passed to the function, then parameters are assigned undefined value by default
+// And when JavaScript tries to add two undefined values will result in NaN (Not a Number)
+// That means any function can be called without the arguments even if it is expecting, also it will not give any error on that call
+// console.log(addNumbers())
+
 // Rest Operator - Handles any number of arguments passed during function call
 // OR when you don't have any idea about number of arguments
 // Create a function that accepts any number of parameters
@@ -55,6 +65,7 @@ function calculateCartValue(num) {
 function calculateCartValue2(...num) {
     return num
 }
+
 
 // console.log(calculateCartValue2(100, 200, 400, 500))
 
@@ -85,8 +96,9 @@ function handleObject(anyobject) {
 //     id: 1212
 // })
 
+// Note::
 // In JS,, When we pass object and array as an argument to function call,,
-// Then it is accepted as a refernce in Function Definition
+// Then it is accepted as a reference in Function Definition
 
 // Creating the Array
 const myArr = [100, 200, 400, 800]
@@ -107,4 +119,4 @@ const myFunction = function() {
     return a+b
 }
 
-console.log(myFunction())
+// console.log(myFunction())
