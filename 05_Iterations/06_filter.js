@@ -64,4 +64,5 @@ userBooks = books.filter((bk) => bk.publish >= 1995 && bk.genre === 'History')
 
 // Syntax: Array.filter(func_name)
 // Note: filter method returns the values based on the given condition, and logic is kept inside the function
+// This method does not modify the original array, but it returns the array based on the condition given
 // which can be filtering values like - (items > 4)
