@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Continued</title>
+    <style>
+        .main-body {
+            background-color: #212121;
+            color: #ddd;
+        }
+    </style>
+</head>
+<body class="main-body">
+    
+</body>
+<script>
+    // Creating the HTML ELement
+    const div = document.createElement('div')
+    console.log(div)
+    div.className = "ms"
+    div.id = Math.round(Math.random() * 10 + 1)
+
+    div.setAttribute("title", "msk")
+    div.style.backgroundColor = "green"
+    div.style.padding = "12px"
+    div.style.borderRadius = "10px"
+
+    // It first get the text of that div and then overwrite it
+    // div.innerText = "Mahesh DOM Practice"
+
+    // This is prefferable by other developers
+    // Create the Node First
+    const myNodeText = document.createTextNode("Mahesh DOM Practice")
+    // Here myNodeText is not the child of parent, but it is actually the childNode
+    // In two.html, we have discussed the complex tree structure which html maintains
+    // It appends that child to the NodeList
+    div.appendChild(myNodeText)
+    console.log(myNodeText)
+
+    // Append the child to body
+    document.body.appendChild(div)
+
+    // Now you can add the whole code inside the function "createDiv" and call it several times to create the div
+    // Also you can pass the background-color, id, class, padding as an argument
+    // Also you can run a loop and use it to create the div multiple times
+</script>
+</html>

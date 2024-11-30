@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | Mahesh</title>
+    <style>
+        .main-body {
+            background-color: #212121;
+            color: #ddd;
+        }
+    </style>
+</head>
+<body class="main-body">
+    <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+</body>
+<script>
+    const myParent = document.querySelector('.parent')
+    // console.log(myParent)
+    // console.log(myParent.children) // HTML Collection of all the children
+    // console.log(myParent.children[1].innerHTML)
+
+    // for (let i = 0; i < myParent.children.length; i++) {
+    //     const element = myParent.children[i];
+    //     console.log(element.innerHTML);
+    // }
+
+    myParent.children[1].style.color = "orange"
+
+    // console.log(myParent.firstElementChild.innerHTML)
+    // console.log(myParent.lastElementChild.innerHTML)
+
+    // querySelector is time consuming operation, as you are traversing a tree and finding the desired thing
+    // Which basically takes O(log N) time
+    const dayOne = document.querySelector('.day')
+    // console.log(dayOne)
+
+    // So, To get the parent of the first child, why to use querySelector function and traverse the tree again
+    // Instead use below method
+    // console.log(dayOne.parentElement);
+    // console.log(dayOne.nextElementSibling);
+
+    console.log("NODES: ", myParent.childNodes);
+    /*
+    0: text -- First Enter or Line Break
+    1: div.day -- First Child
+    2: text -- Next Line Break or Enter
+    3: div.day
+    4: text
+    5: div.day
+    6: text
+    7: div.day
+    8: text
+    length: 9
+
+    Means, Behind the scenes some complex structure is maintained
+    */
+</script>
+</html>
