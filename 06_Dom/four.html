@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Practice</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <ul class="language">
+    </ul>
+</body>
+<script>
+    // Create Element, Add Text to it, Select target and append to it
+    const addLanguage = (value) => {
+        const li = document.createElement('li')
+        li.innerText = `${value}`
+        document.querySelector('.language').appendChild(li)
+    }
+    
+    // Below function is more optimized as we creating text node then appending it to li
+    const addTechStack = (value) => {
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(value))
+        document.querySelector('.language').appendChild(li)
+    }
+
+    const myLang = ['C', 'C++', 'Java', 'Python', 'JavaScript', 'TypeScript', 'Go', 'Ruby', 'Rust', 'C#']
+
+    myLang.forEach((item) => {
+        addLanguage(item)
+    })
+
+    const myTech = ['Web Dev', 'And Dev', 'Cloud Comp', 'Blockchain', 'Data Science', 'AI', 'ML']
+
+    myTech.forEach((item) => {
+        addTechStack(item)
+    })
+
+    // Edit
+    const secondLang = document.querySelector('li:nth-child(2)')
+    // Print to console, to see what gets selected
+    // console.log(secondLang) // C++
+    // Here you are selecting innerHTML for the whole li - Be Careful, it will replace whole HTML part with the provided value
+    // secondLang.innerHTML = "Fortran"
+
+    const newli = document.createElement('li')
+    // Only Modifying the text content inside li - instead createTextNode and appendChild can be used
+    newli.textContent = "Mojo"
+    secondLang.replaceWith(newli) // replaces the whole li with new li
+
+    // Edit - One more way to edit
+    const firstLang = document.querySelector('li:first-child')
+    firstLang.outerHTML = "<li>C++</li>"
+
+    // Remove
+    const lastLang = document.querySelector('li:last-child')
+    lastLang.remove() // ML removed
+</script>
+</html>
