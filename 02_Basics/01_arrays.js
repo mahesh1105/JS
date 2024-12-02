@@ -72,3 +72,11 @@ const myn2 = myArr.splice(1, 3)
 
 // console.log("C ", myArr)
 // console.log(myn2)
+
+// Declaring a Dynamic Array
+// let myColors = new Array()
+
+// Declaring a Static Array
+let myColors = []
+
+// Later Elements can be added to the Array using push() method
