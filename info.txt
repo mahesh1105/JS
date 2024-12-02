@@ -12,7 +12,7 @@ node "fileName.js" :: To execute the JS Files
 
 First stage all changes and then push all the commits to your repo
 
-----------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 Node JS ::
 Node.js is an open-source, cross-platform JavaScript runtime environment and library that allows JavaScript to be run outside of the browser.
 It is built on Chrome's V8 JavaScript engine and uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. 
@@ -26,3 +26,20 @@ Key Features of Node.js ::
 -- Large community and ecosystem: Node.js has a large community and ecosystem with a wide range of modules and libraries available.
 
 In 2015, ES6 was introduced and that time, many features came with ES6. (Major Changes)
+
+---------------------------------------------------------------------------------------------------
+** CSS can be added to HTML documents in 3 ways:
+
+* Inline - by using the style attribute inside HTML elements
+* Internal - by using a <style> element in the <head> section
+* External - by using a <link> element to link to an external CSS file
+
+---------------------------------------------------------------------------------------------------
+** JS can be added to HTML documents in 4 ways:
+
+* Inline JavaScript
+* Internal JavaScript (Within <script> Tag)
+    1. JavaScript Code Inside <head> Tag
+    2. JavaScript Code Inside <body> Tag
+* External JavaScript (Using External File)
+* Asynchronous and Deferred JavaScript
