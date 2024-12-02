@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Events</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div>
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    // Below code can be injected in HTML tag using onClick attribute <-- Inline Event Handler --> But it is not considered as good practice -->
+    // onclick="alert('owl')"
+
+    // 1. Makes code harder to maintain and debug, not even tracable as embedded directly in the HTML and don’t appear clearly in developer tools.
+    // 2. Limited Scalability - Make it harder to manage complex event logic or multiple events on same element
+    // For example, adding a mouseover or mouseout event would require adding more inline attributes, leading to messy HTML.
+    // 3. Inline event handlers execute in the global scope (window), which can lead to naming conflicts and unexpected bugs.
+    // 4. Inline event handlers cannot take advantage of modern JavaScript features like closures, anonymous functions, or addEventListener options (e.g., once or passive).
+    // 5. If an element has multiple inline event handlers, each creates a separate function in memory, 
+    // whereas addEventListener allows attaching multiple handlers or using the same handler for multiple elements.
+
+    // Better to use addEventListener --
+    // 1. Event handlers can be reused or removed with .removeEventListener.
+    // 2. Allows multiple handlers for the same event without conflicts.
+
+    // Code
+    // <button id="myButton">Click Me</button> // HTML
+    // document.getElementById('myButton').addEventListener('click', () => {
+    //     alert('owl');
+    // });
+
+    // document.getElementById('owl').onclick = () => {
+    //     alert('owl clicked')
+    // }
+
+    // attachEvent() -- Old Method
+    // jQuery - .on()
+
+    // Event need to be studied
+    // type - keyboard & Mouse Event, timeStamp, defaultPrevented - preventing the default behavior of event from happening, like - form submit, anchor tag redirect
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY,
+    // altkey, ctrlkey, shiftkey - tell whether these keys are pressed or not, keyCode
+
+    // Using addEventListener() - e -> event object
+    // document.getElementById('owl').addEventListener('click', (e) => {
+    //     console.log('clicked inside the owl');
+    // }, false)
+
+    /*
+        Event Propagation
+        Event Propagation determines in which order the elements receive the event.
+        There are two ways to handle this event propagation order of HTML DOM is Event Bubbling and Event Capturing.
+
+        For example, suppose there are three components namely component1, component2, component3. 
+        Inside these components, we attached the onClickEventListener event handlers. 
+        Now when we click on component3 the event handler for all the three components will be executed. 
+        Now here the question is in which order the event will execute. 
+        Now at this point event bubbling and capturing comes into the picture.
+
+        Bubbling:
+        When an event happens on a component, it first runs the event handler on it, then on its parent component, then all the way up on other ancestors’ components. 
+        By default, all event handles through this order from center component event to outermost component event.
+        Example: In this example, we will create three div components and each component will have an event handler. 
+        When we click on component 3, it will give an alert as “component 3 event clicked” then all the way up “component 2 event clicked” and “component 1 event clicked” alerts will display. 
+        This is how event bubbling happens from the “bottom to top”.
+
+        Ex:: 
+
+        <div id="div1">
+            Component 1
+            <div id="div2">
+                component 2
+                <div id="div3">
+                    component 3
+                </div>
+            </div>
+        </div>
+
+        Javascript code for event bubbling
+        
+        let div1 = document.querySelector("#div1");
+        let div2 = document.querySelector("#div2");
+        let div3 = document.querySelector("#div3");
+
+        div1.addEventListener("click", function (event) {
+            alert("Component 1 event clicked");
+        });
+
+        div2.addEventListener("click", function (event) {
+            alert("Component 2 event clicked");
+        });
+
+        div3.addEventListener("click", function (event) {
+            alert("Component 3 event clicked");
+        });
+        
+        Capturing::
+        It is the opposite of bubbling. The event handler is first on its parent component and then on the component 
+        where it was actually wanted to fire that event handler. In short, it means that the event is first captured by the outermost element 
+        and propagated to the inner elements. It is also called trickle down.
+        Example: In this example, we will create three div components and each component will have an event handler. 
+        When we click on div component 3 event, it will give an alert as “component 1 event clicked” and 
+        then all the way down “component 2 event clicked” and then “component 3 event clicked” alerts will display. 
+        This is how event capturing or trickling happens from the “top to bottom”.
+
+        Ex::
+
+        <div id="div1">
+            Component 1
+            <div id="div2">
+                component 2
+                <div id="div3">
+                    component 3
+                </div>
+            </div>
+        </div>
+
+        Javascript code for event capturing
+
+        let div1 = document.querySelector("#div1");
+        let div2 = document.querySelector("#div2");
+        let div3 = document.querySelector("#div3");
+
+        div1.addEventListener("click", function (event) {
+            alert("Component 1 event clicked");
+        }, true);
+
+        div2.addEventListener("click", function (event) {
+            alert("Component 2 event clicked");
+        }, true);
+
+        div3.addEventListener("click", function (event) {
+            alert("Component 3 event clicked");
+        }, true);
+
+        when you pass false as third args, that is bydefualt false only, then bubbling event propagation will happen
+        else capturing event propagation will happen
+
+        when you call below function then event propagation will not happen
+        e.stopPropagation()
+    */
+
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked inside the ul");
+    // }, false)
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log("owl clicked");
+    //     e.stopPropagation()
+    // }, false)
+
+    // document.getElementById('google').addEventListener('click', (e) => {
+    //     e.preventDefault() // stops the default behavior of anchor tag under li, i.e. redirecting to google.com
+    //     e.stopPropagation() // stops the event propagation
+    //     console.log('google clicked')
+    // })
+
+    // Problem: whenever you click on any image then it should be removed
+    // If you select all the images one by one and then add eventListener property to it and then remove the image
+    // This will create the problem, what if you have 2000-5000 images or more then how will you select all
+
+    // So better to select its parent (ul in this case) then delete its child (li inside that img is there)
+    // Whenever you click on any image under the parent, you will come to know which image you clicked, i.e. from which target the event is generated
+
+    document.querySelector('#images').addEventListener('click', (e) => {
+        // Select the target from which the event is generated
+        // console.log(e) // To print the event
+        // console.log(e.target) // To print the target from which the event is generated
+
+        // Select the parent node of the target from which the event is generated
+        // let removeIt = e.target.parentNode // li --> parent of img tag
+        // removeIt.remove()
+
+        // Other way to remove
+        // removeIt.parentNode.removeChild(removeIt) // ul --> parent of li, then specifying the child to remove
+
+        // Problem -- If you click on list items instead of the image, then it will select its parent, ul (parent of li) in this case
+        // then it will remove whole unordered list, and it can be seen that all images will gets removed in one go
+
+        // To solve this problem, we need to add if-check
+        // console.log(e.target.tagName) // print the tagName from which the event is generated
+        
+        // If tagName is IMG then only remove the image, if li then don't
+        if(e.target.tagName === 'IMG') {
+            console.log(e.target.id) // To print the id of the target event
+            let removeIt = e.target.parentNode
+            removeIt.remove()
+        }
+    }, false)
+
+</script>
+</html>
