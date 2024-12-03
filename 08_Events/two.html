@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async JS</title>
+</head>
+<body>
+    <h1>Mahesh JS</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    // Syntax: setTimeout(handler, timeout)
+    // handler --> function which don't have any name
+    // timeout --> after that time, that handler will get executed
+
+    // Note --> setTimeout need handler and timeout value,
+    // so while passing handler write function name only, not the function execution
+
+    // setTimeout(() => {
+    //     console.log("Mahesh")
+    // }, 2000)
+
+    const sayMahesh = () => {
+        console.log("Mahesh")
+    }
+
+    // setTimeout(sayMahesh, 2000) // After 2ms or timeout expiry, execute the function only once
+
+    // Note:: setTimeout(sayMahesh(), 2000) --> This is wrong, it requires handler only, not the funxtion execution
+
+    // setInterval(sayMahesh, 2000) // Execute the function every 2 sec
+
+    const changeText = () => {
+        document.querySelector('h1').innerHTML = "Hi Mahesh, How are You?"
+    }
+
+    const changeMe = setTimeout(changeText, 5000) // Execute the function after 4 sec
+
+    // Also, Like setTimeout function, we have clearTimeout, which requires a reference to setTimeout
+    // Once that reference passed, setTimeout will never execute, as clearTimeout function is stopping it from execution
+
+    // clearTimeout(changeMe) // Because of this setTimeout will never execute
+
+    // But first we created the setTimeout and then given the refernce of it to clearTimeout,
+    // what is the logic or use of setInterval in that, if you don't want to execute then don't create setTimeout simple...
+
+    // But we want if some event is triggered then setTimeout should not execute
+
+    // Solution
+    document.querySelector('#stop').addEventListener('click', () => {
+        clearTimeout(changeMe)
+        console.log("Event Stopped...")
+    })
+
+</script>
+</html>
