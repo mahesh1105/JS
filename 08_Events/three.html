@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async JS</title>
+</head>
+<body>
+    <h1>Mahesh and JavaScript</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    // setInterval --> execute the callback function every time timeout expires
+    // If you don't pass time in setInterval, then default time is 0ms and 
+    // It will still execute the function as fast as possible --> Function will run for sure without any issue
+    // setInterval(() => {
+    //     console.log("Mahesh")
+    // }, 1000)
+
+    // This function also takes the third parameter which is basically a string
+    // That parameter you can accept inside the handler or the function
+    const printMe = (str) => {
+        console.log(str)
+    }
+    // setInterval(printMe, 2000, "Hi Mahesh") // Execute every 2 sec
+
+    // clearInterval --> requires reference of the setInterval, once passed setInterval will never execute
+    const changeMe = setInterval(printMe, 3000, "Hi Mahesh")
+    clearInterval(changeMe) // Now setInterval will never execute
+
+    // ---------------------------------------------------------------------------------------------------
+
+    // Target --> When you click on start, It should print every time timeout expires and
+    // When you click on stop, It should stop printing after that
+
+    // Solution -- Add an event trigger on start button for printing, i.e. setInterval
+    // AND Add an event trigger on stop button for stopping it, i.e. clearInterval
+
+    // let refVar
+
+    // const printOnStart = () => {
+    //     refVar = setInterval(() => {
+    //         console.log("Mahesh")
+    //     }, 200)
+    // }
+
+    // const stopIt = () => {
+    //     clearInterval(refVar)
+    // }
+    
+    // document.querySelector('#start').addEventListener('click', printOnStart)
+
+    // document.querySelector('#stop').addEventListener('click', stopIt)
+
+    // ---------------------------------------------------------------------------------------------------
+
+</script>
+</html>
