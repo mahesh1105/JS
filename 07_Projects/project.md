@@ -189,3 +189,94 @@ function mainFunc() {
     }
 }
 ```
+
+## Project 5
+
+``` JavaScript
+const insert = document.getElementById('insert')
+
+window.addEventListener('keydown', (e) => {
+    insert.innerHTML = `
+    <div class="color">
+        <table>
+            <tr>
+                <th>Key</th>
+                <th>KeyCode</th>
+                <th>KeyName</th>
+            </tr>
+            <tr>
+                <td>${e.key === " " ? 'Space' : e.key}</td>
+                <td>${e.keyCode}</td>
+                <td>${e.code}</td>
+            </tr>
+        </table>
+    </div>
+    `
+})
+```
+
+## Project 6
+
+``` JavaScript
+
+const colorCont = ['red', 'blue', 'green', 'pink', 'aqua', 'yellow', 'orange', 'black', 'grey', 'violet']
+
+// Generate the Random Color using HEX Value
+const genRandomColor = () => {
+    const hex = "0123456789ABCDEF"
+    let color = "#"
+
+    for(let i=0 ; i<6 ; i++) {
+        color += hex[Math.floor(Math.random() * 16)]
+    }
+
+    return color
+}
+
+// Create a variable to maintain the container elements
+// Note if yoy declare and assign this variable inside the setInterval function
+// Then everytime it executes, i will be set to 0 and you will see red color always
+let i=0
+
+// Create a variable which will store the reference of setInterval, that is later passed to clearInterval to stop its execution
+let refToSetInt
+
+// const startChangingColor = () => {
+//     refToSetInt = setInterval(() => {
+//         // Change the Body Color from the container
+//         document.body.style.backgroundColor = colorCont[i]
+//         i++
+
+//         // If it goes out of bound then reset it to zero so that it will not go outside the container
+//         if(i == 10) {
+//             i=0
+//         }
+
+//     }, 500)
+// }
+
+const startChangingColor = () => {
+    if(refToSetInt == null) {
+        refToSetInt = setInterval(() => {
+            // Call the function to generate the random color
+            let color = genRandomColor()
+
+            // Change the Body Color to random value
+            document.body.style.backgroundColor = color
+
+        }, 500)
+    }
+}
+
+const stopChangingColor = () => {
+    clearInterval(refToSetInt)
+    document.body.style.backgroundColor = '#212121'
+    // For cleaner code set the reference variable to null
+    refToSetInt = null
+}
+
+document.querySelector('#start').addEventListener('click', startChangingColor)
+
+document.querySelector('#stop').addEventListener('click', stopChangingColor)
+
+```
