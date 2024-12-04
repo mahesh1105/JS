@@ -242,8 +242,9 @@ getAllUsers2()
 // Else in console, you will get error message that, exception raised, but there is no catch to handle that exception
 
 // Same can be achieved using then() and catch()
-// Note here fetch() is used to retrieve the data from the api, if its resolve then() will get executed else catch() will execute
+// Note here fetch() will return a promise either resolve or reject, if its resolve then() will consume it else reject catch() will consume
 // It will handle resolve() and reject() calls internally
+
 fetch('https://api.github.com/users/mahesh1105')
 .then((response) => {
     return response.json()
@@ -254,6 +255,109 @@ fetch('https://api.github.com/users/mahesh1105')
 .catch((error) => {
     console.log(error)
 })
+
+// Note::
+// For Interview: you have given a request from promise and from there you get an Error Code 404, then where you will get it, resolve or reject
+// Answer: Neither resolve nor reject, you will get it as the response, if fetch is unable to communicate with API then only you will get reject
+
+// Explaination
+/*
+    ** How fetch() Works -->
+    -------------------------
+    fetch() Resolves Even on HTTP Errors:
+    1. The fetch() function resolves the promise as long as the network communication is successful, 
+        even if the HTTP status indicates an error (like 404 Not Found, 500 Internal Server Error, etc.).
+    2. The promise will not reject for these HTTP status codes.
+    -- Instead, the Response object returned by fetch() contains the HTTP status, and you can inspect it manually.
+
+    When Does fetch() Reject?
+    The promise is rejected only for network-level failures, such as:
+    1. DNS lookup failures.
+    2. Network is unreachable.
+    3. CORS issues.
+    4. API server is down.
+
+    ** Detailed Behavior
+    --------------------------
+    1. Scenario: HTTP 404
+    . The API endpoint does not exist.
+    . fetch() resolves to a Response object where:
+        . response.ok = false (indicates an error status code).
+        . response.status = 404.
+    -- The catch block will not be triggered unless you explicitly throw an error for response.ok = false.
+
+    2. Scenario: Network Error
+    . If the browser cannot reach the API due to a network issue (e.g., DNS failure, server down, CORS blocked):
+        . fetch() rejects the promise.
+        . The catch block will be triggered directly.
+
+    *** Important::
+    When using fetch():
+    . HTTP errors like 404 are not rejections; they result in a resolved promise with an error status in the Response object.
+    . Only network failures or technical issues cause the promise to reject.
+    -- Always check the "response.ok" or "response.status" to handle HTTP errors explicitly.
+
+    ## Code to Handle HTTP Error 404 in Fetch -->
+    . Case 1: Inspecting the Response
+    -------------------------------------------------------------------------
+    fetch('https://api.example.com/nonexistent-endpoint')
+    .then(response => {
+        if (!response.ok) { // Checks HTTP error codes (not limited to 404)
+        console.log(`Error ${response.status}: ${response.statusText}`);
+        return; // Handle error or terminate further processing
+        }
+        return response.json(); // Proceed if response is OK
+    })
+    .then(data => console.log(data))
+    .catch(error => console.error('Network error:', error));
+    -------------------------------------------------------------------------
+    . Case 2: Explicit Error Handling
+    -------------------------------------------------------------------------
+    fetch('https://api.example.com/nonexistent-endpoint')
+    .then(response => {
+        if (response.status === 404) {
+        throw new Error('Resource not found');
+        }
+        return response.json();
+    })
+    .then(data => console.log('Data:', data))
+    .catch(error => console.error('Error occurred:', error));
+    -------------------------------------------------------------------------
+
+    ** What is an HTTP 404 Error?
+    . "404 Not Found" is an HTTP status code defined by the HTTP protocol.
+    . It means the client (e.g., your browser or fetch() request) successfully communicated with the server, but the server cannot find the resource specified in the request URL.
+    
+    ** Why 404 Isn't a Rejected Promise in fetch()?
+    . fetch() resolves when the network communication is successful, meaning:
+        . The request reached the server.
+        . The server sent back a response (even if the status code is 404 or another error).
+    . fetch() does not know whether the response status is desirable for your application; it assumes you'll check that yourself.
+    
+    The distinction is:
+    . A network error (like no internet connection, DNS failure, or CORS issues) results in a rejected promise.
+    . An HTTP error (like 404) results in a resolved promise with a Response object, which you must inspect to determine success or failure.
+    
+    ** What Does a 404 Indicate?
+    1. Resource Not Found:
+    . The URL path requested does not exist on the server.
+    . For example, if the API endpoint is incorrect or the resource was deleted:
+    GET https://api.example.com/users/999999
+
+    If user ID 999999 doesn't exist, the server might respond with:
+    HTTP/1.1 404 Not Found
+    
+    2. Client-Side Error:
+    . Status codes in the 400 range indicate client-side issues, meaning the client made a mistake in the request (e.g., wrong URL or missing parameters).
+    
+    3. Server Response with Context:
+    . Many APIs include additional information in the response body for 404 errors:
+    {
+    "error": "Resource not found",
+    "status": 404,
+    "message": "The requested user does not exist"
+    }
+*/
 
 // Need to study
 // Promise.all
