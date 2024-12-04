@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Request</title>
+</head>
+<body>
+    <!-- XMLHttpRequest.readyState - Returns a number representing the state of the request
+        Below are the possible states
+    0	UNSENT	          Client has been created, open() not called yet.
+    1	OPENED	          open() has been called, but the request hasn't been sent yet.
+    2	HEADERS_RECEIVED  send() has been called and the request has been sent, 
+                          and the server has responded with the status and headers, but the body is not yet available.
+    3	LOADING	          Downloading; responseText holds partial data OR The response body is being received (in progress).
+    4	DONE	          The operation is complete OR The request is completed, and the entire response has been received.
+    Browser and Node JS are javascript runtime
+    Node JS is the implementation of V8 Engine
+    There are so many Engines available which runs the JS, One of them is V8 Engine
+    -->
+</body>
+<script>
+    const requestURL = 'https://api.github.com/users/mahesh1105'
+    // Create an instance of XMLHttpRequest to interact with the server
+    const xhr = new XMLHttpRequest()
+
+    // Configure the request
+    xhr.open('GET', requestURL)
+
+    // Action to perform, once the response is received
+    xhr.onreadystatechange = function() {
+        console.log(xhr.readyState)
+
+        // If the state is 4 or DONE
+        if(xhr.readyState === 4) {
+            // You will get all the data under responseText variable which belongs to xhr
+            // and that data is in the form of string
+            const data = JSON.parse(this.responseText) // xhr.responseText
+            console.log(typeof data)
+            console.log(data.followers)
+            console.log(data.name)
+        }
+    }
+
+    // send the request
+    xhr.send()
+
+    /*
+        Why 2, 3, and 4 are Printed?
+        The onreadystatechange function runs each time the readyState value changes. Here’s why you see 2, 3, and 4 in your console:
+
+        readyState = 2:
+        The server has received the request and sent back the response headers.
+        At this point, only the status and headers are available.
+        
+        readyState = 3:
+        The response body is being downloaded. If the response is large, this state allows partial data to be accessed 
+        (though it’s not common to use this state in modern applications).
+        
+        readyState = 4:
+        The response is fully downloaded, and the request is complete. This is where most of your processing happens.
+    */
+    
+    // Whenever you receive the data from any API, most of the time it will be in string format and sometimes object
+    // That's why JSON Formatter is required to parse that data in JSON Format, which is more readable and understandable
+    // AND after parsing, it is easy to retrieve the data
+
+    // XMLHttpRequest -->
+    /*
+        XMLHttpRequest is a JavaScript API used for making HTTP requests to interact with servers. 
+        It can be used to retrieve data from a URL without refreshing the entire web page, 
+        enabling the development of dynamic and interactive web applications.
+
+        Steps Involved::
+        --------------------
+        1. Create an Instance
+        Create a new instance of the XMLHttpRequest object:
+
+        let xhr = new XMLHttpRequest();
+
+        2.  Configure the Request
+        Set the HTTP method (GET or POST) and the URL:
+
+        xhr.open('GET', 'https://example.com/api/data', true);
+        -- The first parameter is the HTTP method.
+        -- The second parameter is the URL.
+        -- The third parameter is a boolean indicating whether the request should be asynchronous 
+           (default is true).
+
+        3. Set Up the Callback
+        Define what should happen when the response is received:
+
+        xhr.onload = function() {
+            if (xhr.status >= 200 && xhr.status < 300) {
+                console.log('Response:', xhr.responseText);
+            } else {
+                console.error('Request failed with status:', xhr.status);
+            }
+        };
+
+        4. Handle Errors
+        You can add error handling:
+
+        xhr.onerror = function() {
+            console.error('An error occurred during the request.');
+        };
+
+        5. Send the Request
+        Send the request to the server:
+
+        xhr.send();
+
+        Example: Making a GET Request
+        ---------------------------------
+
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts/1', true);
+
+        xhr.onload = function() {
+            if (xhr.status >= 200 && xhr.status < 300) {
+                console.log('Response:', JSON.parse(xhr.responseText));
+            } else {
+                console.error('Request failed with status:', xhr.status);
+            }
+        };
+
+        xhr.onerror = function() {
+            console.error('An error occurred during the request.');
+        };
+
+        xhr.send();
+
+        Example: Making a POST Request
+        ----------------------------------
+
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', 'https://jsonplaceholder.typicode.com/posts', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+
+        xhr.onload = function() {
+            if (xhr.status >= 200 && xhr.status < 300) {
+                console.log('Response:', JSON.parse(xhr.responseText));
+            } else {
+                console.error('Request failed with status:', xhr.status);
+            }
+        };
+
+        xhr.onerror = function() {
+            console.error('An error occurred during the request.');
+        };
+
+        let data = JSON.stringify({ title: 'foo', body: 'bar', userId: 1 });
+        xhr.send(data);
+
+        onload function:
+        --------------------
+
+        The onload function of the XMLHttpRequest object is an event handler that gets called when the request completes successfully. It allows you to define what actions to take after receiving the response from the server.
+
+        ** Purpose of onload
+        1. Handle the Response: The onload function processes the data received from the server, such as parsing JSON or updating the user interface.
+        2. Check Request Status: You can check the status code (e.g., 200 for success) and determine whether the response should be processed further.
+        3. Asynchronous Programming: Since HTTP requests are often asynchronous, the onload handler ensures that the code runs only after the response is received.
+
+        ** How It Works
+        When an HTTP request completes:
+        1. The browser triggers the onload event if the request completes without network errors.
+        2. The response (available as xhr.responseText, xhr.response, or other properties) becomes accessible.
+        3. The onload handler executes the defined logic.
+
+        Understanding HTTP Status Codes in the 200–299 Range::
+
+        A) 200 (OK): The standard success response for GET requests. The response body contains the requested resource.
+        B) 201 (Created): Typically used for POST requests to indicate that a new resource has been created successfully.
+        C) 202 (Accepted): Indicates that the request has been accepted for processing, but the processing is not yet complete.
+        D) 204 (No Content): Indicates success but no content is returned (useful for DELETE or PUT operations).
+        E) Other 2xx codes indicate specific types of success.
+        
+        By checking the range 200–299, you ensure that any successful status code is handled appropriately, not just 200.
+
+        Checking the range 200–299 is a best practice for robust and flexible applications, 
+        as it covers all success scenarios defined in the HTTP specification. 
+        It makes your code more versatile and less prone to breaking if the API evolves.
+
+    */
+</script>
+</html>
