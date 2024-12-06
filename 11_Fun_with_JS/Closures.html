@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure aur chai</title>
+</head>
+<body style="background-color: #313131;">
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+
+    <script>
+        function outer(){
+            let username = "mahesh"
+            console.log("OUTER", secret); // Not accessible
+
+            // Defining the function inside the function - share the same memory with outer function
+            function inner(){
+                let secret = "my123"
+                console.log("inner", username);
+            }
+
+            // Defining the function inside the function - share the same memory with outer function
+            function innerTwo(){
+                console.log("innerTwo", username);
+                console.log(secret);
+            }
+            inner()
+            innerTwo()
+    
+        }
+        // outer()
+        // console.log("TOO OUTER", username); // Not accessible
+    
+    
+        function makeFunc() {
+            const name = "Mozilla";
+
+            function displayName() {
+                console.log(name);
+            }
+
+            // This will not only return the reference of the function,
+            // But it will also return the lexical scoping of the outer function
+            // in which inner function is defined, because if it doesn't happen then
+            // After going outside the scope of mainFunc(), its EC will get destroyed
+            return displayName;
+        }
+    
+        const myFunc = makeFunc();
+        myFunc();
+    
+        // document.getElementById("orange").onclick = function(){
+        //     document.body.style.backgroundColor = `orange`
+        // }
+        // document.getElementById("green").onclick = function(){
+        //     document.body.style.backgroundColor = `green`
+        // }
+    
+        function clickHandler(color){
+            // If we don't create the inner function, then it will directly execute the function body without even clicking the buttons
+            // And that is not our expectation
+            // document.body.style.backgroundColor = `${color}`
+    
+            return function(){
+                document.body.style.backgroundColor = `${color}`
+            }
+        }
+    
+        document.getElementById('orange').onclick = clickHandler("orange")
+        document.getElementById('green').onclick = clickHandler("green")
+
+        /*
+            When you click the buttons, the respective onclick handlers (the returned functions) are executed:
+
+            1. Clicking the "orange" button:
+            . Executes the returned function from clickHandler("orange").
+            . This function changes the background color to "orange".
+            
+            2. Clicking the "green" button:
+            . Executes the returned function from clickHandler("green").
+            . This function changes the background color to "green".
+
+            The background color would be set immediately (when the script runs), instead of waiting for a button click. 
+            By using a higher-order function (clickHandler), you delay the execution of the background color change until the button is clicked.
+        */
+    
+    </script>
+</body>
+</html>
