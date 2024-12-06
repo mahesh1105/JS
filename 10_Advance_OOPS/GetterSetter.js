@@ -16,6 +16,8 @@ class User2 {
         this.password = password
     }
 
+    // You can also return email in smallcase or capitalcase using toLowerCase() or toUpperCase() method
+    // Beacause there are chances that user can enter the email in both upper and lower case (mix)
     get email() {
         // return `${this.email}` // RangeError: Maximum call stack size exceeded
         return `${this._email}`
@@ -26,6 +28,7 @@ class User2 {
         this._email = email
     }
 
+    // You can return the modified password, so that outside user cannot access correct password directly - if uses getter to access it
     get password() {
         // return `${this.password}` // RangeError: Maximum call stack size exceeded
         return `${this._password}`
