@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+</head>
+<body>
+    <button>Button Clicked</button>
+</body>
+<script>
+    class React {
+        constructor(){
+            this.library = "React"
+            this.server = "https://localhost:300"
+
+            // requirement - select the button and on clicking it should print - button clicked
+            document
+                .querySelector('button')
+                .addEventListener('click', this.handleClick.bind(this))
+
+        }
+        handleClick(){
+            console.log("button clicked");
+            console.log(this.server);
+        }
+    }
+
+    const app = new React()
+</script>
+</html>
+
+// Why bind is Necessary in Your Example:
+// In the code you provided, the addEventListener callback is called in the context of the button element, 
+// not the React class instance. By default, this inside handleClick would refer to the button (<button>), not the React instance.
+
+// To ensure this refers to the React instance (and not the button), you use bind
+
+/*
+    When Button is Clicked:
+    ---------------------------
+    handleClick is invoked with this explicitly set to the React instance via bind.
+    
+    Outputs:
+    -----------
+    button clicked
+    https://localhost:300
+    
+    Without bind:
+    ------------------------
+    . this inside handleClick would refer to the button element, not the React instance.
+    . this.server would be undefined.
+*/
