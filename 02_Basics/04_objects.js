@@ -1,4 +1,4 @@
-// Sigleton Object - made using constructor
+// Singleton Object - made using constructor
 const tinderUser = new Object()
 
 // Adding elements to the Object
