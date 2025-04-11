@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>CountDownTimer</title>
+</head>
+<body>
+    <div class="container">
+        <!-- 
+            Timer Heading
+            Day/Hrs/Min/Sec Block
+            Progress Heading
+            Progress Bar
+        -->
+
+        <div class="main-block">
+            <h1 id="timer-heading">Countdown Timer</h1>
+
+            <div class="countdown">
+                <div class="block">
+                    <p id="days">00</p>
+                    <p class="info">Days</p>
+                </div>
+                <div class="block">
+                    <p id="hrs">00</p>
+                    <p class="info">Hrs</p>
+                </div>
+                <div class="block">
+                    <p id="mins">00</p>
+                    <p class="info">Mins</p>
+                </div>
+                <div class="block">
+                    <p id="secs">00</p>
+                    <p class="info">Secs</p>
+                </div>
+            </div>
+
+            <h1 id="progress-heading">Progress Bar</h1>
+
+            <div class="progress-container">
+                <div class="progress-bar">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

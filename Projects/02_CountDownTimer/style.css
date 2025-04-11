@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: inter;
+    color: white;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #373a3d;
+}
+
+.main-block {
+    width: 60%;
+    /* height: 55vh; */
+
+    padding: 40px;
+
+    background-color: #888;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    /* Removing - As Timer block will stick to each other and space-evenly value will not work for inner container */
+    /* align-items: center; */
+}
+
+#timer-heading {
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.countdown {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.block {
+    width: 150px;
+    height: 150px;
+
+    border-radius: 10px;
+    background-color: #444;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#days, #hrs, #mins, #secs {
+    font-size: 4rem;
+}
+
+.info {
+    font-size: 1.5rem;
+}
+
+#progress-heading {
+    margin-top: 40px;
+    margin-bottom: 30px;
+
+    font-size: 2.2rem;
+    text-align: center;
+}
+
+.progress-container {
+    width: 100%;
+    background-color: #fff;
+
+    /* border: 1px solid black; */
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 15px;
+
+    background-color: rgb(66, 197, 66);
+    border-radius: 10px;
+}
